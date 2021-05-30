@@ -6,11 +6,13 @@ int main(){
   //unsigned because we are not outputting negative characters
   unsigned int inc;
 
-  printf("    ");
+  unsigned int prevchar = '\n';
+
   while ((inc = getc(stdin)) != EOF){
-    putchar(inc);
-    if (inc == '\n'){
+    if (prevchar == '\n'){
       printf("    ");
     }
+    putchar(inc);
+    prevchar = inc;
   }
 }
